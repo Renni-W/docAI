@@ -12,7 +12,7 @@ from PIL import Image
 from docAI1 import GhanaCard
 
 def match(f_dict, b_dict):
-    check = all(f_dict.get(key) == b_dict.get(key) for key in b_dict and key != "Date_of_Expiry")
+    check = all(f_dict.get(key) == b_dict.get(key) for key in b_dict if key != "Date_of_Expiry")
     return [check, "information on both sides do match" if check else "Information on both sides do not match"]
 
 def confirmData(f_dict, data):
