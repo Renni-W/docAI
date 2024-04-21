@@ -3,3 +3,4 @@ pillow
 numpy
 streamlit
 pandas
+pytesseract
