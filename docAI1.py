@@ -193,25 +193,25 @@ def confirmData(f_dict, data):
         return [check, "Information is not verified in database"]
 
 
-#Sample of how you will use it.
-#First read the image to be verified
-# Extract information from the front side
-Imag = cv2.imread("EmmaF.jpg")
-extract = GhanaCard()
-imgf = extract.select_transform_feature("F",Imag) # F for a front image and B for a back image.
-A = extract.extractDataFromIdCard("F",imgf)
+# #Sample of how you will use it.
+# #First read the image to be verified
+# # Extract information from the front side
+# Imag = cv2.imread("EmmaF.jpg")
+# extract = GhanaCard()
+# imgf = extract.select_transform_feature("F",Imag) # F for a front image and B for a back image.
+# A = extract.extractDataFromIdCard("F",imgf)
 
-#Now extract information from te back side
-bel = cv2.imread("EmmaB.jpg")
-obj = GhanaCard()
-imgf = obj.select_transform_feature("B",bel)
-B = obj.extractDataFromIdCard("B",imgf)
+# #Now extract information from te back side
+# bel = cv2.imread("EmmaB.jpg")
+# obj = GhanaCard()
+# imgf = obj.select_transform_feature("B",bel)
+# B = obj.extractDataFromIdCard("B",imgf)
 
 
 
-print(A)
-print(B)
-print(match(A,B))
-print(confirmData(f_dict = A, data = pd.read_csv("data1.csv")))
+# print(A)
+# print(B)
+# print(match(A,B))
+# print(confirmData(f_dict = A, data = pd.read_csv("data1.csv")))
 
 
