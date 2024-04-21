@@ -23,7 +23,7 @@ class GhanaCard:
         plt.show()
 
     def cropImageRoi(self, image, roi):
-        """Create a custom function to cropped image based on region of interest."""
+        """Custom function to cropped image based on region of interest."""
         roi_cropped = image[
             int(roi[1]) : int(roi[1] + roi[3]), int(roi[0]) : int(roi[0] + roi[2])
         ]
@@ -88,10 +88,8 @@ class GhanaCard:
         
         if key in alpha_keys:
             cleanText = self.extract_alphabets(text)
-        elif key in date_keys and pos == "F":
+        elif key in date_keys:
             cleanText = self.extract_dates(text)
-        elif key in date_keys and pos == "B":
-            cleanText = self.reverse_dates(text)
         elif key in alphanum_keys:
             cleanText = self.select_numbers_alphabets_and_hyphen(text)
         elif key in num_keys:
