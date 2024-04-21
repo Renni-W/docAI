@@ -69,7 +69,7 @@ class GhanaCard:
         cleaned_text = "".join(date_parts)
         cleaned_text = cleaned_text[:2] + '/' + cleaned_text[2:4] + '/' + cleaned_text[4:]
         parts = cleaned_text.split('/')
-        reversed_date = parts[-1] + '/' + parts[-2] + '/'+parts[-3] 
+        reversed_date = parts[-3] + '/' + parts[-1] + '/'+parts[-1] 
         # reversed_date = '/'.join(parts[::-1])
         return reversed_date
 
