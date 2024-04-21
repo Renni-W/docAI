@@ -12,8 +12,8 @@ import pandas as pd
 class GhanaCard:
     def __init__(self):
         # Declare pytesseract executable path
-        # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-        k = ""
+        pytesseract.pytesseract.tesseract_cmd = 'r/usr/bin/tesseract'
+
     def display_img(self, cvImg):
         """Custom function to show open cv image on notebook."""
         cvImg = cv2.cvtColor(cvImg, cv2.COLOR_BGR2RGB)
