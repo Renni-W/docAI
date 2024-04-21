@@ -1,4 +1,4 @@
-
+import tempfile,os
 import cv2
 import numpy as np
 # import matplotlib.pyplot as plt
@@ -46,6 +46,7 @@ if uploaded_file is not None:
     imgf = extractor.select_transform_feature("F", opencv_image)
     A = extractor.extractDataFromIdCard("F", imgf)
     st.write("Extracted Data:", A)
+    os.unlink(tfile.name)
 
 if st.button("Next Step: Process Back Side"):
     st.session_state['front_data'] = A  # Save front data in session state
