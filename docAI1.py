@@ -12,7 +12,7 @@ import pandas as pd
 class GhanaCard:
     def __init__(self):
         # Declare pytesseract executable path
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+        # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
     def display_img(self, cvImg):
         """Custom function to show open cv image on notebook."""
