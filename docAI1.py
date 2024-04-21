@@ -69,7 +69,8 @@ class GhanaCard:
         cleaned_text = "".join(date_parts)
         cleaned_text = cleaned_text[:2] + '/' + cleaned_text[2:4] + '/' + cleaned_text[4:]
         parts = cleaned_text.split('/')
-        reversed_date = '/'.join(parts[::-1])
+        reversed_date = parts[-1] + '/' + parts[-2] + '/'+parts[-3] 
+        # reversed_date = '/'.join(parts[::-1])
         return reversed_date
 
     @staticmethod
@@ -88,8 +89,10 @@ class GhanaCard:
         
         if key in alpha_keys:
             cleanText = self.extract_alphabets(text)
-        elif key in date_keys:
+        elif key in date_keys and pos == "F":
             cleanText = self.extract_dates(text)
+        elif key in date_keys and pos == "B":
+            cleanText = self.reverse_dates(text)
         elif key in alphanum_keys:
             cleanText = self.select_numbers_alphabets_and_hyphen(text)
         elif key in num_keys:
