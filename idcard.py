@@ -31,7 +31,17 @@ if uploaded_file is not None:
     # # Convert the file to an opencv image.
     # file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     # opencv_image = cv2.imdecode(file_bytes, 1)
-    opencv_image = cv2.imread(uploaded_file)
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Uploaded Image.', use_column_width=True)
+    st.write("")
+    st.write("Processing...")
+
+    # Save the uploaded file to a temporary file to read with cv2.imread
+    tfile = tempfile.NamedTemporaryFile(delete=False) 
+    tfile.write(uploaded_file.getvalue())
+    tfile.close()
+
+    opencv_image = cv2.imread(tfile.name)
     extractor = GhanaCard()
     imgf = extractor.select_transform_feature("F", opencv_image)
     A = extractor.extractDataFromIdCard("F", imgf)
@@ -48,7 +58,17 @@ if uploaded_file_back is not None:
     # st.write("Processing...")
     # file_bytes_back = np.asarray(bytearray(uploaded_file_back.read()), dtype=np.uint8)
     # opencv_image_back = cv2.imdecode(file_bytes_back, 1)
-    opencv_image_back = cv2.imread(uploaded_file)
+    image = Image.open(uploaded_file_back)
+    st.image(image, caption='Uploaded Image.', use_column_width=True)
+    st.write("")
+    st.write("Processing...")
+
+    # Save the uploaded file to a temporary file to read with cv2.imread
+    tfile = tempfile.NamedTemporaryFile(delete=False) 
+    tfile.write(uploaded_file_back.getvalue())
+    tfile.close()
+
+    opencv_image_back = cv2.imread(tfile.name)
 
 
     extractor_back = GhanaCard()
