@@ -24,14 +24,14 @@ st.title("ID Card Verification System")
 
 uploaded_file = st.file_uploader("Choose an ID card image for the front side...", type=['jpg', 'png'])
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image.', use_column_width=True)
-    st.write("")
-    st.write("Processing...")
-    # Convert the file to an opencv image.
-    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-    opencv_image = cv2.imdecode(file_bytes, 1)
-
+    # image = Image.open(uploaded_file)
+    # st.image(image, caption='Uploaded Image.', use_column_width=True)
+    # st.write("")
+    # st.write("Processing...")
+    # # Convert the file to an opencv image.
+    # file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    # opencv_image = cv2.imdecode(file_bytes, 1)
+    opencv_image = cv2.imread(uploaded_file)
     extractor = GhanaCard()
     imgf = extractor.select_transform_feature("F", opencv_image)
     A = extractor.extractDataFromIdCard("F", imgf)
@@ -43,11 +43,13 @@ if st.button("Next Step: Process Back Side"):
 
 uploaded_file_back = st.file_uploader("Choose an ID card image for the back side...", key="2", type=['jpg', 'png'])
 if uploaded_file_back is not None:
-    image_back = Image.open(uploaded_file_back)
-    st.image(image_back, caption='Uploaded Back Image.', use_column_width=True)
-    st.write("Processing...")
-    file_bytes_back = np.asarray(bytearray(uploaded_file_back.read()), dtype=np.uint8)
-    opencv_image_back = cv2.imdecode(file_bytes_back, 1)
+    # image_back = Image.open(uploaded_file_back)
+    # st.image(image_back, caption='Uploaded Back Image.', use_column_width=True)
+    # st.write("Processing...")
+    # file_bytes_back = np.asarray(bytearray(uploaded_file_back.read()), dtype=np.uint8)
+    # opencv_image_back = cv2.imdecode(file_bytes_back, 1)
+    opencv_image_back = cv2.imread(uploaded_file)
+
 
     extractor_back = GhanaCard()
     imgb = extractor_back.select_transform_feature("B", opencv_image_back)
@@ -61,7 +63,7 @@ if st.button("Confirm Details"):
     st.write(result_match[1])
 
     # Assuming 'data' is loaded from an Excel file or similar
-    data = pd.read_excel("database.xlsx")
+    data = pd.read_csv("database.csv")
     result_confirm = confirmData(front_data, data)
     st.write(result_confirm[1])
 
