@@ -5,3 +5,5 @@ streamlit
 pandas
 pytesseract
 matplotlib
+tempfile
+os
