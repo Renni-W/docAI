@@ -67,7 +67,7 @@ class GhanaCard:
     def reverse_dates(text):
         date_parts = re.findall(r"[0-9]+", text)
         cleaned_text = "".join(date_parts)
-        cleaned_text = cleaned_text[:1] + '/' + cleaned_text[2:3] + '/' + cleaned_text[4:]
+        cleaned_text = cleaned_text[:2] + '/' + cleaned_text[2:4] + '/' + cleaned_text[4:]
         parts = cleaned_text.split('/')
         reversed_date = parts[-1] + '/' + parts[-2] + '/'+parts[-3] 
         # reversed_date = '/'.join(parts[::-1])
