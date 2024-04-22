@@ -23,7 +23,7 @@ def confirmData(f_dict, data):
 
 
 
-st.title("Annologic ID Card Verification System")
+st.title("Annologic Document Card Verification")
 
 uploaded_file = st.file_uploader("Choose an ID card image for the front side...", type=['jpg', 'png'])
 if uploaded_file is not None:
@@ -88,6 +88,7 @@ if st.button("Confirm Details"):
 
     # Assuming 'data' is loaded from an Excel file or similar
     data = pd.read_csv("database.csv")
+    st.write(data)
     result_confirm = confirmData(front_data, data)
     st.write(result_confirm[1])
 
