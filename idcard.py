@@ -23,7 +23,7 @@ def confirmData(f_dict, data):
 
 
 
-st.title("ID Card Verification System")
+st.title("Annologic ID Card Verification System")
 
 uploaded_file = st.file_uploader("Choose an ID card image for the front side...", type=['jpg', 'png'])
 if uploaded_file is not None:
