@@ -183,11 +183,11 @@ def match(f_dict, b_dict):
 def confirmData(f_dict, data):
     check = True
     keys = f_dict.keys()
-    personldetail = data[data["Personal_ID_Number"] == f_dict["Personal_ID_Number"]]
+    personldetail = data.loc[data["Personal_ID_Number"] == f_dict["Personal_ID_Number"]]
     for key in keys:
-        if f_dict[key] != personldetail[key].iloc[0]:
+        if f_dict[key] != personldetail[key].values[0]:
             check = True
-            print(personldetail[key].iloc[0,0])
+            print(personldetail[key].values[0])
     if check == True:
         return [check,"Information is verified in database"]
     else:
