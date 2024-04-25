@@ -23,6 +23,7 @@ def match(f_dict, b_dict):
 def confirmData(f_dict, data):
     check = True
     keys = f_dict.keys()
+    print(keys)
     personldetail = data.loc[data["Personal_ID_Number"] == f_dict["Personal_ID_Number"]]
     for key in keys:
         if f_dict[key] != personldetail[key].values[0]:
