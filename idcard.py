@@ -33,7 +33,7 @@ def confirmData(f_dict, data):
     if check == True:
         return [check,"Information is verified in database"]
     else:
-        return [check, key, "Information is not verified in database"]
+        return [check, ls, "Information is not verified in database"]
 
 
 st.title("Annologic Document Card Verification")
