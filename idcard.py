@@ -101,6 +101,8 @@ if st.button("Confirm Details"):
     # Assuming 'data' is loaded from an Excel file or similar
     data = pd.read_csv("database.csv")
     st.write(data)
+    st.write(front_data)
+
     result_confirm = confirmData(front_data, data)
     st.write(result_confirm[1])
 
