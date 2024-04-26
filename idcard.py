@@ -23,16 +23,17 @@ def match(f_dict, b_dict):
 def confirmData(f_dict, data):
     check = True
     keys = f_dict.keys()
-    print(keys)
+    ls = list()
     personldetail = data.loc[data["Personal_ID_Number"] == f_dict["Personal_ID_Number"]]
     for key in keys:
         if f_dict[key] != personldetail[key].values[0]:
             check = False
-            print(personldetail[key].values[0])
+            ls.append(key)
+            # print(personldetail[key].values[0])
     if check == True:
         return [check,"Information is verified in database"]
     else:
-        return [check, "Information is not verified in database"]
+        return [check, key, "Information is not verified in database"]
 
 
 st.title("Annologic Document Card Verification")
