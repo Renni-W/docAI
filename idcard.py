@@ -95,14 +95,13 @@ if uploaded_file_back is not None:
 if st.button("Confirm Details"):
     # Retrieve data from session state
     front_data = st.session_state.get('front_data', {})
-    st.write(front_data)
     result_match = match(front_data, B)
     st.write(result_match[1])
 
     # Assuming 'data' is loaded from an Excel file or similar
     data = pd.read_csv("database.csv")
     st.write(data)
-
+    st.write(front_data)
     result_confirm = confirmData(front_data, data)
     st.write(result_confirm[1])
 
