@@ -22,6 +22,7 @@ def match(f_dict, b_dict):
 
 def confirmData(f_dict, data):
     check = True
+    data.astype(str, inplace = True)
     keys = f_dict.keys()
     ls = list()
     personldetail = data.loc[data["Personal_ID_Number"] == f_dict["Personal_ID_Number"]]
