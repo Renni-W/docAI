@@ -15,7 +15,7 @@ class ImageConstantROI():
             "Previous_Names": [(749, 676, 679, 69)],
             "Nationality": [(739, 806, 679, 76)],
             "DOB": [(736, 915, 553, 82)],
-            "Date_of_Issuance": [(739, 1399, 623, 79)],
+            "Date_of_Issuance": [(722, 1396, 626, 82)],
             "Personal_ID_Number": [(736, 1041, 726, 76)],
             "Height/Taille": [(1538, 1054, 268, 63)],
             "Sex/Sexe": [(1482, 802, 265, 79)],
